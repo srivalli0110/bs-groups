@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://bs-groups-w1s9.vercel.app/sitemap.xml

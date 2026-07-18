@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+>
+
+  <url>
+    <loc>https://bs-groups-w1s9.vercel.app/</loc>
+    <priority>1.0</priority>
+  </url>
+
+  <url>
+    <loc>https://bs-groups-w1s9.vercel.app/services/loans</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://bs-groups-w1s9.vercel.app/services/solar</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://bs-groups-w1s9.vercel.app/services/insurance</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://bs-groups-w1s9.vercel.app/services/farmhouse</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://bs-groups-w1s9.vercel.app/services/open-plots</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://bs-groups-w1s9.vercel.app/services/tensile</loc>
+    <priority>0.8</priority>
+  </url>
+
+</urlset>
