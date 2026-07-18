@@ -1,4 +1,3 @@
-```jsx
 import { motion } from "framer-motion";
 import { FaArrowRight } from "react-icons/fa";
 import { Link } from "react-router-dom";
@@ -57,6 +56,7 @@ function Services() {
     >
       {/* Background Glow */}
       <div className="absolute -top-32 right-0 w-[350px] h-[350px] bg-cyan-500/10 rounded-full blur-[140px]" />
+
       <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-blue-600/10 rounded-full blur-[160px]" />
 
       <div className="max-w-7xl mx-auto relative z-10">
@@ -76,6 +76,7 @@ function Services() {
           <h2 className="mt-5 text-5xl md:text-6xl font-black text-white">
             Everything You Need
             <br />
+
             <span className="bg-gradient-to-r from-cyan-300 to-blue-400 bg-clip-text text-transparent">
               Under One Roof
             </span>
@@ -93,7 +94,7 @@ function Services() {
 
           {services.map((service, index) => (
             <motion.div
-              key={index}
+              key={service.title}
               initial={{ opacity: 0, y: 60 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -115,7 +116,7 @@ function Services() {
                   className="w-full h-full object-cover transition duration-700 group-hover:scale-110"
                 />
 
-                <div className="absolute inset-0 bg-gradient-to-t from-[#07131F] via-[#07131F]/20 to-transparent"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-[#07131F] via-[#07131F]/20 to-transparent" />
               </div>
 
               {/* Content */}
@@ -138,7 +139,8 @@ function Services() {
                   <FaArrowRight />
                 </Link>
 
-                <div className="mt-5 h-[2px] w-0 bg-gradient-to-r from-cyan-400 to-blue-500 group-hover:w-full transition-all duration-500"></div>
+                {/* Bottom Line */}
+                <div className="mt-5 h-[2px] w-0 bg-gradient-to-r from-cyan-400 to-blue-500 group-hover:w-full transition-all duration-500" />
 
               </div>
 
@@ -153,4 +155,3 @@ function Services() {
 }
 
 export default Services;
-```

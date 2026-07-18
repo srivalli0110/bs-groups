@@ -1,4 +1,3 @@
-```jsx
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import Navbar from "./components/Navbar";
@@ -15,12 +14,12 @@ import Footer from "./sections/Footer";
 import FloatingButtons from "./components/FloatingButtons";
 
 // Service Pages
-import Loans from "./pages/Loans";
-import Solar from "./pages/Solar";
-import Insurance from "./pages/Insurance";
-import Farmhouse from "./pages/Farmhouse";
-import OpenPlots from "./pages/OpenPlots";
-import Tensile from "./pages/Tensile";
+import Loans from "./pages/loans";
+import Solar from "./pages/solar";
+import Insurance from "./pages/insurance";
+import Farmhouse from "./pages/farmhouse";
+import OpenPlots from "./pages/openplots";
+import Tensile from "./pages/tensile";
 
 function Home() {
   return (
@@ -45,7 +44,7 @@ function App() {
     <BrowserRouter>
       <Routes>
 
-        {/* Home Page */}
+        {/* Home */}
         <Route path="/" element={<Home />} />
 
         {/* Service Pages */}
@@ -62,4 +61,3 @@ function App() {
 }
 
 export default App;
-```
