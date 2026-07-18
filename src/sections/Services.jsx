@@ -1,5 +1,7 @@
+```jsx
 import { motion } from "framer-motion";
 import { FaArrowRight } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 import solarImage from "../assets/images/solar.jpeg";
 import tensileImage from "../assets/images/tensile.jpeg";
@@ -13,31 +15,37 @@ function Services() {
     {
       image: loansImage,
       title: "Loans",
+      link: "/services/loans",
       desc: "Personal, Business, Education and Home Loans with quick approvals and expert guidance.",
     },
     {
       image: solarImage,
       title: "Solar Panels",
+      link: "/services/solar",
       desc: "Smart solar solutions for residential, commercial and industrial projects.",
     },
     {
       image: insuranceImage,
       title: "Insurance",
+      link: "/services/insurance",
       desc: "Health, Life and General Insurance plans to protect your family and business.",
     },
     {
       image: farmhouseImage,
       title: "Farm House Rentals",
+      link: "/services/farmhouse",
       desc: "Premium farmhouses for vacations, family gatherings and corporate events.",
     },
     {
       image: openPlotsImage,
       title: "Open Plots",
+      link: "/services/open-plots",
       desc: "Secure residential and commercial plot investments in prime locations.",
     },
     {
       image: tensileImage,
       title: "Tensile Structures",
+      link: "/services/tensile",
       desc: "Modern tensile roofing and architectural solutions with premium quality.",
     },
   ];
@@ -121,12 +129,14 @@ function Services() {
                   {service.desc}
                 </p>
 
-                <button
+                {/* Learn More */}
+                <Link
+                  to={service.link}
                   className="mt-6 inline-flex items-center gap-2 text-cyan-400 font-semibold group-hover:gap-4 transition-all duration-300"
                 >
                   Learn More
                   <FaArrowRight />
-                </button>
+                </Link>
 
                 <div className="mt-5 h-[2px] w-0 bg-gradient-to-r from-cyan-400 to-blue-500 group-hover:w-full transition-all duration-500"></div>
 
@@ -143,3 +153,4 @@ function Services() {
 }
 
 export default Services;
+```
