@@ -1,53 +1,23 @@
 import { Link } from "react-router-dom";
 import {
   FaArrowLeft,
-  FaPhoneAlt,
-  FaWhatsapp,
-  FaHome,
-  FaBuilding,
-  FaChartLine,
+  FaCheckCircle,
 } from "react-icons/fa";
 
 import openPlotsImage from "../assets/images/openplots.jpeg";
 
 function OpenPlots() {
   const features = [
-    {
-      icon: <FaHome />,
-      title: "Residential Plots",
-      desc: "Explore residential plot opportunities suitable for building your dream home.",
-    },
-    {
-      icon: <FaBuilding />,
-      title: "Commercial Plots",
-      desc: "Explore commercial plot options for businesses and future development opportunities.",
-    },
-    {
-      icon: <FaChartLine />,
-      title: "Investment Opportunities",
-      desc: "Discover property opportunities that may suit your long-term investment goals.",
-    },
+    "Residential Plots",
+    "Commercial Plots",
+    "Prime Locations",
+    "Investment Opportunities",
   ];
-
-  const handleWhatsApp = () => {
-    const message = `Hello B&S GROUPS,
-
-I am interested in your Open Plots.
-
-Please provide me with more information.
-
-Thank you.`;
-
-    window.open(
-      `https://wa.me/919848378055?text=${encodeURIComponent(message)}`,
-      "_blank"
-    );
-  };
 
   return (
     <div className="min-h-screen bg-[#07131F] text-white">
 
-      {/* HERO SECTION */}
+      {/* Hero Section */}
       <section className="relative min-h-[550px] flex items-center overflow-hidden">
 
         <img
@@ -79,45 +49,25 @@ Thank you.`;
           </h1>
 
           <p className="mt-6 text-slate-300 text-lg md:text-xl leading-8 max-w-2xl">
-            Explore opportunities for residential and commercial plot
-            investments in promising locations.
+            Explore opportunities for residential and commercial
+            plot investments in carefully selected locations.
           </p>
-
-          <div className="flex flex-wrap gap-4 mt-10">
-
-            <button
-              onClick={handleWhatsApp}
-              className="inline-flex items-center gap-3 px-7 py-4 rounded-xl bg-green-500 hover:bg-green-600 font-bold transition hover:scale-105"
-            >
-              <FaWhatsapp className="text-xl" />
-              Enquire on WhatsApp
-            </button>
-
-            <a
-              href="tel:+919848378055"
-              className="inline-flex items-center gap-3 px-7 py-4 rounded-xl border border-cyan-400 text-cyan-400 hover:bg-cyan-400 hover:text-[#07131F] font-bold transition"
-            >
-              <FaPhoneAlt />
-              Call Us
-            </a>
-
-          </div>
 
         </div>
       </section>
 
-      {/* CONTENT SECTION */}
+      {/* Main Content */}
       <section className="py-24 px-6">
 
         <div className="max-w-6xl mx-auto">
 
           <div className="grid lg:grid-cols-2 gap-16 items-center">
 
-            {/* LEFT */}
+            {/* Left Content */}
             <div>
 
               <span className="uppercase tracking-[5px] text-cyan-400 font-semibold">
-                Open Plot Opportunities
+                Real Estate Opportunities
               </span>
 
               <h2 className="text-4xl md:text-5xl font-bold mt-5 mb-8">
@@ -126,44 +76,37 @@ Thank you.`;
               </h2>
 
               <p className="text-slate-300 text-lg leading-8 mb-6">
-                B&S GROUPS provides opportunities to explore residential and
-                commercial open plots in carefully selected locations.
+                B&S GROUPS provides opportunities to explore residential
+                and commercial open plots in carefully selected locations.
               </p>
 
               <p className="text-slate-300 text-lg leading-8">
-                Whether you are looking to build your dream home or make a
-                long-term property investment, our team can help you understand
-                available options and make an informed decision.
+                Whether you are planning to build your dream home or
+                looking for a long-term property investment, our team
+                can help you understand available opportunities.
               </p>
 
             </div>
 
-            {/* RIGHT */}
-            <div className="space-y-5">
+            {/* Features */}
+            <div className="grid sm:grid-cols-2 gap-5">
 
               {features.map((feature) => (
                 <div
-                  key={feature.title}
+                  key={feature}
                   className="group p-7 rounded-2xl bg-[#0B1B2B] border border-slate-700 hover:border-cyan-400 transition-all duration-300"
                 >
 
-                  <div className="flex items-start gap-5">
+                  <FaCheckCircle className="text-cyan-400 text-2xl mb-5 group-hover:scale-110 transition" />
 
-                    <div className="w-14 h-14 shrink-0 rounded-xl bg-gradient-to-br from-cyan-400 to-blue-600 flex items-center justify-center text-white text-xl group-hover:scale-110 transition">
-                      {feature.icon}
-                    </div>
+                  <h3 className="text-xl font-semibold">
+                    {feature}
+                  </h3>
 
-                    <div>
-                      <h3 className="text-xl font-semibold">
-                        {feature.title}
-                      </h3>
-
-                      <p className="text-slate-400 mt-3 leading-6">
-                        {feature.desc}
-                      </p>
-                    </div>
-
-                  </div>
+                  <p className="text-slate-400 mt-3 leading-6">
+                    Explore opportunities with guidance to help
+                    you make informed property decisions.
+                  </p>
 
                 </div>
               ))}

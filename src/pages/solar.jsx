@@ -1,54 +1,23 @@
 import { Link } from "react-router-dom";
 import {
   FaArrowLeft,
-  FaPhoneAlt,
-  FaWhatsapp,
   FaCheckCircle,
-  FaSolarPanel,
-  FaHome,
-  FaBuilding,
 } from "react-icons/fa";
 
 import solarImage from "../assets/images/solar.jpeg";
 
 function Solar() {
   const features = [
-    {
-      icon: <FaHome />,
-      title: "Residential Solar",
-      desc: "Solar solutions designed for homes to support clean and reliable energy needs.",
-    },
-    {
-      icon: <FaBuilding />,
-      title: "Commercial Solar",
-      desc: "Practical solar solutions for offices, shops and commercial properties.",
-    },
-    {
-      icon: <FaSolarPanel />,
-      title: "Industrial Solar",
-      desc: "Solar solutions suitable for larger energy requirements and industrial applications.",
-    },
+    "Residential Solar",
+    "Commercial Solar",
+    "Industrial Solar",
+    "Solar Installation Solutions",
   ];
-
-  const handleWhatsApp = () => {
-    const message = `Hello B&S GROUPS,
-
-I am interested in your Solar Solutions.
-
-Please provide me with more information.
-
-Thank you.`;
-
-    window.open(
-      `https://wa.me/919848378055?text=${encodeURIComponent(message)}`,
-      "_blank"
-    );
-  };
 
   return (
     <div className="min-h-screen bg-[#07131F] text-white">
 
-      {/* HERO SECTION */}
+      {/* Hero Section */}
       <section className="relative min-h-[550px] flex items-center overflow-hidden">
 
         <img
@@ -80,45 +49,25 @@ Thank you.`;
           </h1>
 
           <p className="mt-6 text-slate-300 text-lg md:text-xl leading-8 max-w-2xl">
-            Smart and sustainable solar solutions for homes, businesses
-            and industrial projects.
+            Smart and sustainable solar solutions designed for homes,
+            businesses and industrial projects.
           </p>
-
-          <div className="flex flex-wrap gap-4 mt-10">
-
-            <button
-              onClick={handleWhatsApp}
-              className="inline-flex items-center gap-3 px-7 py-4 rounded-xl bg-green-500 hover:bg-green-600 font-bold transition hover:scale-105"
-            >
-              <FaWhatsapp className="text-xl" />
-              Enquire on WhatsApp
-            </button>
-
-            <a
-              href="tel:+919848378055"
-              className="inline-flex items-center gap-3 px-7 py-4 rounded-xl border border-cyan-400 text-cyan-400 hover:bg-cyan-400 hover:text-[#07131F] font-bold transition"
-            >
-              <FaPhoneAlt />
-              Call Us
-            </a>
-
-          </div>
 
         </div>
       </section>
 
-      {/* CONTENT SECTION */}
+      {/* Main Content */}
       <section className="py-24 px-6">
 
         <div className="max-w-6xl mx-auto">
 
           <div className="grid lg:grid-cols-2 gap-16 items-center">
 
-            {/* LEFT CONTENT */}
+            {/* Left Content */}
             <div>
 
               <span className="uppercase tracking-[5px] text-cyan-400 font-semibold">
-                Our Solar Services
+                Renewable Energy
               </span>
 
               <h2 className="text-4xl md:text-5xl font-bold mt-5 mb-8">
@@ -127,45 +76,39 @@ Thank you.`;
               </h2>
 
               <p className="text-slate-300 text-lg leading-8 mb-6">
-                B&S GROUPS provides solar solutions designed to help customers
-                adopt clean and reliable renewable energy for their homes,
-                businesses and industrial requirements.
+                B&S GROUPS provides solar solutions designed to help
+                customers adopt clean, reliable and sustainable renewable
+                energy for their everyday needs.
               </p>
 
               <p className="text-slate-300 text-lg leading-8">
-                We focus on practical solar solutions that can help reduce
-                dependence on conventional electricity while supporting a
-                cleaner and more sustainable future.
+                From residential installations to commercial and industrial
+                requirements, we help customers explore practical solar
+                solutions that can support energy efficiency and a more
+                sustainable future.
               </p>
 
             </div>
 
-            {/* RIGHT FEATURES */}
-            <div className="grid sm:grid-cols-2 lg:grid-cols-1 gap-5">
+            {/* Features */}
+            <div className="grid sm:grid-cols-2 gap-5">
 
               {features.map((feature) => (
                 <div
-                  key={feature.title}
+                  key={feature}
                   className="group p-7 rounded-2xl bg-[#0B1B2B] border border-slate-700 hover:border-cyan-400 transition-all duration-300"
                 >
 
-                  <div className="flex items-start gap-5">
+                  <FaCheckCircle className="text-cyan-400 text-2xl mb-5 group-hover:scale-110 transition" />
 
-                    <div className="w-14 h-14 shrink-0 rounded-xl bg-gradient-to-br from-cyan-400 to-blue-600 flex items-center justify-center text-white text-xl group-hover:scale-110 transition">
-                      {feature.icon}
-                    </div>
+                  <h3 className="text-xl font-semibold">
+                    {feature}
+                  </h3>
 
-                    <div>
-                      <h3 className="text-xl font-semibold">
-                        {feature.title}
-                      </h3>
-
-                      <p className="text-slate-400 mt-3 leading-6">
-                        {feature.desc}
-                      </p>
-                    </div>
-
-                  </div>
+                  <p className="text-slate-400 mt-3 leading-6">
+                    Reliable solar solutions designed around your
+                    energy requirements.
+                  </p>
 
                 </div>
               ))}

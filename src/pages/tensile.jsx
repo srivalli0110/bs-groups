@@ -1,53 +1,23 @@
 import { Link } from "react-router-dom";
 import {
   FaArrowLeft,
-  FaPhoneAlt,
-  FaWhatsapp,
-  FaUmbrella,
-  FaCar,
-  FaDraftingCompass,
+  FaCheckCircle,
 } from "react-icons/fa";
 
 import tensileImage from "../assets/images/tensile.jpeg";
 
 function Tensile() {
   const features = [
-    {
-      icon: <FaUmbrella />,
-      title: "Tensile Roofing",
-      desc: "Modern roofing solutions designed to provide practical covered spaces with an attractive appearance.",
-    },
-    {
-      icon: <FaCar />,
-      title: "Parking Structures",
-      desc: "Durable tensile structures suitable for creating comfortable and protected parking areas.",
-    },
-    {
-      icon: <FaDraftingCompass />,
-      title: "Architectural Solutions",
-      desc: "Contemporary tensile designs that combine functionality, durability and modern architectural appeal.",
-    },
+    "Tensile Roofing",
+    "Parking Structures",
+    "Architectural Solutions",
+    "Custom Design Solutions",
   ];
-
-  const handleWhatsApp = () => {
-    const message = `Hello B&S GROUPS,
-
-I am interested in your Tensile Structures.
-
-Please provide me with more information.
-
-Thank you.`;
-
-    window.open(
-      `https://wa.me/919848378055?text=${encodeURIComponent(message)}`,
-      "_blank"
-    );
-  };
 
   return (
     <div className="min-h-screen bg-[#07131F] text-white">
 
-      {/* HERO SECTION */}
+      {/* Hero Section */}
       <section className="relative min-h-[550px] flex items-center overflow-hidden">
 
         <img
@@ -79,45 +49,25 @@ Thank you.`;
           </h1>
 
           <p className="mt-6 text-slate-300 text-lg md:text-xl leading-8 max-w-2xl">
-            Modern and durable tensile roofing solutions for functional
-            and attractive spaces.
+            Modern and durable tensile roofing solutions designed
+            for functional and attractive spaces.
           </p>
-
-          <div className="flex flex-wrap gap-4 mt-10">
-
-            <button
-              onClick={handleWhatsApp}
-              className="inline-flex items-center gap-3 px-7 py-4 rounded-xl bg-green-500 hover:bg-green-600 font-bold transition hover:scale-105"
-            >
-              <FaWhatsapp className="text-xl" />
-              Enquire on WhatsApp
-            </button>
-
-            <a
-              href="tel:+919848378055"
-              className="inline-flex items-center gap-3 px-7 py-4 rounded-xl border border-cyan-400 text-cyan-400 hover:bg-cyan-400 hover:text-[#07131F] font-bold transition"
-            >
-              <FaPhoneAlt />
-              Call Us
-            </a>
-
-          </div>
 
         </div>
       </section>
 
-      {/* CONTENT SECTION */}
+      {/* Main Content */}
       <section className="py-24 px-6">
 
         <div className="max-w-6xl mx-auto">
 
           <div className="grid lg:grid-cols-2 gap-16 items-center">
 
-            {/* LEFT */}
+            {/* Left Content */}
             <div>
 
               <span className="uppercase tracking-[5px] text-cyan-400 font-semibold">
-                Our Tensile Services
+                Modern Infrastructure
               </span>
 
               <h2 className="text-4xl md:text-5xl font-bold mt-5 mb-8">
@@ -126,45 +76,38 @@ Thank you.`;
               </h2>
 
               <p className="text-slate-300 text-lg leading-8 mb-6">
-                B&S GROUPS provides modern tensile roofing and architectural
-                solutions designed to combine functionality, durability and
-                attractive design.
+                B&S GROUPS provides modern tensile roofing and
+                architectural solutions designed to combine functionality,
+                durability and attractive design.
               </p>
 
               <p className="text-slate-300 text-lg leading-8">
-                Tensile structures can be used for a variety of residential,
-                commercial and architectural applications, providing practical
-                covered spaces with a modern appearance.
+                Tensile structures can be used for residential,
+                commercial and architectural applications, creating
+                practical covered spaces with a modern appearance.
               </p>
 
             </div>
 
-            {/* RIGHT */}
-            <div className="space-y-5">
+            {/* Features */}
+            <div className="grid sm:grid-cols-2 gap-5">
 
               {features.map((feature) => (
                 <div
-                  key={feature.title}
+                  key={feature}
                   className="group p-7 rounded-2xl bg-[#0B1B2B] border border-slate-700 hover:border-cyan-400 transition-all duration-300"
                 >
 
-                  <div className="flex items-start gap-5">
+                  <FaCheckCircle className="text-cyan-400 text-2xl mb-5 group-hover:scale-110 transition" />
 
-                    <div className="w-14 h-14 shrink-0 rounded-xl bg-gradient-to-br from-cyan-400 to-blue-600 flex items-center justify-center text-white text-xl group-hover:scale-110 transition">
-                      {feature.icon}
-                    </div>
+                  <h3 className="text-xl font-semibold">
+                    {feature}
+                  </h3>
 
-                    <div>
-                      <h3 className="text-xl font-semibold">
-                        {feature.title}
-                      </h3>
-
-                      <p className="text-slate-400 mt-3 leading-6">
-                        {feature.desc}
-                      </p>
-                    </div>
-
-                  </div>
+                  <p className="text-slate-400 mt-3 leading-6">
+                    Practical and modern structural solutions
+                    designed for different applications.
+                  </p>
 
                 </div>
               ))}

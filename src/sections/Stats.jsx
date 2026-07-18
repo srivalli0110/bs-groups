@@ -1,9 +1,9 @@
 import { motion } from "framer-motion";
 import {
   FaUsers,
-  FaMoneyCheckAlt,
-  FaSolarPanel,
-  FaHeadset,
+  FaBriefcase,
+  FaHandshake,
+  FaStar,
 } from "react-icons/fa";
 
 function Stats() {
@@ -11,128 +11,122 @@ function Stats() {
     {
       icon: <FaUsers />,
       number: "500+",
-      title: "Happy Customers",
+      label: "Happy Customers",
+      description: "Customers who have trusted B&S GROUPS",
     },
     {
-      icon: <FaMoneyCheckAlt />,
-      number: "1000+",
-      title: "Loan Assistance",
+      icon: <FaBriefcase />,
+      number: "6",
+      label: "Services",
+      description: "Multiple solutions under one roof",
     },
     {
-      icon: <FaSolarPanel />,
-      number: "100+",
-      title: "Solar Projects",
+      icon: <FaHandshake />,
+      number: "100%",
+      label: "Customer Focus",
+      description: "Dedicated to customer satisfaction",
     },
     {
-      icon: <FaHeadset />,
+      icon: <FaStar />,
       number: "24/7",
-      title: "Customer Support",
+      label: "Support",
+      description: "Always here when you need us",
     },
   ];
 
   return (
     <section
       id="stats"
-      className="relative py-24 px-6 bg-[#07131F] overflow-hidden"
+      className="relative overflow-hidden bg-[#07131F] py-24 px-6 text-white"
     >
       {/* Background Glow */}
-      <div className="absolute -top-40 -left-20 w-[400px] h-[400px] bg-cyan-500/10 blur-[140px] rounded-full"></div>
-      <div className="absolute bottom-0 -right-20 w-[400px] h-[400px] bg-blue-600/10 blur-[140px] rounded-full"></div>
+      <div className="absolute top-0 left-1/4 w-96 h-96 bg-cyan-500/10 rounded-full blur-[140px] pointer-events-none" />
+
+      <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-blue-600/10 rounded-full blur-[140px] pointer-events-none" />
 
       <div className="relative z-10 max-w-7xl mx-auto">
 
         {/* Heading */}
-
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-16"
+          transition={{ duration: 0.7 }}
+          className="text-center max-w-3xl mx-auto mb-16"
         >
-          <span className="uppercase tracking-[5px] text-cyan-400 font-semibold">
-            Our Achievements
+          <span className="uppercase tracking-[6px] text-cyan-400 font-semibold text-sm">
+            B&S GROUPS
           </span>
 
-          <h2 className="text-4xl md:text-5xl font-bold text-white mt-4">
-            Numbers That Speak
+          <h2 className="mt-5 text-4xl sm:text-5xl md:text-6xl font-black leading-tight">
+            Growing With
+            <br />
+            <span className="bg-gradient-to-r from-cyan-300 to-blue-400 bg-clip-text text-transparent">
+              Your Trust
+            </span>
           </h2>
 
-          <p className="text-slate-300 text-lg leading-8 max-w-3xl mx-auto mt-6">
-            Our commitment to quality service, transparency and customer
-            satisfaction has helped B&S GROUPS become a trusted partner for
-            loans, insurance, solar solutions and real estate services.
+          <p className="mt-6 text-slate-300 text-base md:text-lg leading-8">
+            We bring together multiple services and professional support
+            to help individuals, families and businesses move forward
+            with confidence.
           </p>
         </motion.div>
 
-        {/* Cards */}
+        {/* Stats Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
 
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
-
-          {stats.map((item, index) => (
-
+          {stats.map((stat, index) => (
             <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 60 }}
+              key={stat.label}
+              initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{
                 duration: 0.6,
-                delay: index * 0.15,
+                delay: index * 0.12,
               }}
-              whileHover={{
-                y: -12,
-                scale: 1.05,
-              }}
-              className="
-                bg-[#0D1B2A]
-                rounded-3xl
-                border
-                border-slate-700
-                shadow-xl
-                p-8
-                text-center
-                hover:border-cyan-400
-                hover:shadow-cyan-500/20
-                transition-all
-                duration-300
-              "
+              whileHover={{ y: -8 }}
+              className="group relative"
             >
 
-              {/* Icon */}
+              {/* Card */}
+              <div className="relative h-full min-h-[280px] rounded-3xl bg-[#0B1B2B] border border-white/10 p-8 text-center overflow-hidden hover:border-cyan-400/50 transition-all duration-500 shadow-xl">
 
-              <div
-                className="
-                  w-20
-                  h-20
-                  mx-auto
-                  rounded-full
-                  bg-cyan-500/10
-                  flex
-                  items-center
-                  justify-center
-                  text-cyan-400
-                  text-4xl
-                  mb-6
-                "
-              >
-                {item.icon}
+                {/* Card Glow */}
+                <div className="absolute -top-24 -right-24 w-48 h-48 rounded-full bg-cyan-400/5 blur-3xl group-hover:bg-cyan-400/10 transition-all duration-500" />
+
+                {/* Number */}
+                <div className="absolute top-4 right-6 text-6xl font-black text-white/[0.03] group-hover:text-cyan-400/[0.05] transition-colors duration-500">
+                  0{index + 1}
+                </div>
+
+                {/* Icon */}
+                <div className="relative mx-auto w-16 h-16 rounded-2xl bg-gradient-to-br from-cyan-400 to-blue-600 flex items-center justify-center text-white text-2xl shadow-lg shadow-cyan-500/20 group-hover:scale-110 group-hover:rotate-3 transition-all duration-500">
+                  {stat.icon}
+                </div>
+
+                {/* Number */}
+                <h3 className="relative mt-7 text-4xl md:text-5xl font-black bg-gradient-to-r from-cyan-300 to-blue-400 bg-clip-text text-transparent">
+                  {stat.number}
+                </h3>
+
+                {/* Label */}
+                <h4 className="relative mt-4 text-xl font-bold text-white group-hover:text-cyan-400 transition-colors duration-300">
+                  {stat.label}
+                </h4>
+
+                {/* Description */}
+                <p className="relative mt-3 text-slate-400 leading-6 text-sm">
+                  {stat.description}
+                </p>
+
+                {/* Bottom Line */}
+                <div className="absolute bottom-0 left-1/2 -translate-x-1/2 h-[2px] w-0 bg-gradient-to-r from-cyan-400 to-blue-500 group-hover:w-2/3 transition-all duration-700" />
+
               </div>
 
-              {/* Number */}
-
-              <h3 className="text-5xl font-extrabold bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
-                {item.number}
-              </h3>
-
-              {/* Title */}
-
-              <p className="mt-4 text-slate-300 text-lg font-medium">
-                {item.title}
-              </p>
-
             </motion.div>
-
           ))}
 
         </div>
