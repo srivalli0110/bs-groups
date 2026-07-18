@@ -6,7 +6,7 @@ import office from "../assets/images/office1.jpeg";
 function Hero() {
   return (
     <section
-      id="hero"
+      id="home"
       className="relative overflow-hidden bg-[#07131F] text-white pt-36 pb-24 px-6"
     >
       <div className="absolute -top-52 -left-40 h-[420px] w-[420px] rounded-full bg-cyan-500/20 blur-[130px]" />

@@ -1,134 +1,199 @@
 import { useEffect, useState } from "react";
-import { FaBars, FaTimes } from "react-icons/fa";
-import logo from "../assets/images/logo.png";
+import { FaBars, FaTimes, FaWhatsapp } from "react-icons/fa";
 
 function Navbar() {
-  const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState("home");
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 40);
+      setScrolled(window.scrollY > 50);
+
+      const sections = [
+        "home",
+        "about",
+        "services",
+        "why-choose-us",
+        "apply",
+        "contact",
+        "location",
+      ];
+
+      let currentSection = "home";
+
+      sections.forEach((section) => {
+        const element = document.getElementById(section);
+
+        if (element) {
+          const sectionTop = element.offsetTop - 150;
+
+          if (window.scrollY >= sectionTop) {
+            currentSection = section;
+          }
+        }
+      });
+
+      setActiveSection(currentSection);
     };
 
     window.addEventListener("scroll", handleScroll);
 
-    return () => window.removeEventListener("scroll", handleScroll);
+    handleScroll();
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
   }, []);
 
-  const closeMenu = () => setMenuOpen(false);
+  const navItems = [
+    { name: "Home", id: "home" },
+    { name: "About", id: "about" },
+    { name: "Services", id: "services" },
+    { name: "Why Choose Us", id: "why-choose-us" },
+    { name: "Apply Now", id: "apply" },
+    { name: "Contact", id: "contact" },
+    { name: "Location", id: "location" },
+  ];
+
+  const handleNavigation = (id) => {
+    setMenuOpen(false);
+
+    const element = document.getElementById(id);
+
+    if (element) {
+      element.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    }
+  };
 
   return (
-    <nav
+    <header
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${
         scrolled
-          ? "bg-[#07131F]/90 backdrop-blur-xl shadow-[0_10px_40px_rgba(0,0,0,0.45)] border-b border-white/10"
-          : "bg-transparent"
+          ? "bg-[#07131F]/95 backdrop-blur-xl shadow-lg shadow-black/20 border-b border-white/10"
+          : "bg-[#07131F]/40 backdrop-blur-md"
       }`}
     >
-      <div className="max-w-7xl mx-auto px-6">
+      <nav className="max-w-7xl mx-auto px-6 lg:px-8">
+        <div className="h-20 flex items-center justify-between">
 
-        <div className="h-24 flex items-center justify-between">
-
-          {/* LOGO SECTION */}
-          <a href="#hero" className="flex items-center gap-4">
-
-            <img
-              src={logo}
-              alt="B&S GROUP"
-              className="w-16 h-16 rounded-full object-cover border-2 border-cyan-400 shadow-lg shadow-cyan-500/30"
-            />
-
-            <div>
-              <h1 className="text-3xl font-extrabold text-white">
-                B<span className="text-cyan-400">&</span>S
-              </h1>
-
-              <p className="text-sm text-slate-300">
-                Believe and services
-              </p>
+          {/* Logo */}
+          <button
+            onClick={() => handleNavigation("home")}
+            className="flex items-center gap-3 group"
+          >
+            <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-cyan-400 to-blue-600 flex items-center justify-center shadow-lg shadow-cyan-500/20 group-hover:scale-105 transition-transform">
+              <span className="text-white font-black text-lg">
+                B&S
+              </span>
             </div>
 
-          </a>
+            <div className="text-left">
+              <h1 className="text-white font-black text-xl leading-none">
+                B&S GROUPS
+              </h1>
 
-          {/* DESKTOP MENU */}
-          <div className="hidden lg:flex items-center gap-10">
+              <p className="text-cyan-400 text-[10px] tracking-[3px] uppercase mt-1">
+                Business & Finance
+              </p>
+            </div>
+          </button>
 
-            {[
-              ["Home", "#hero"],
-              ["About", "#about"],
-              ["Services", "#services"],
-              ["Contact", "#contact"],
-            ].map(([name, link]) => (
-              <a
-                key={name}
-                href={link}
-                className="relative text-slate-200 font-medium hover:text-cyan-400 transition duration-300 after:absolute after:left-0 after:-bottom-2 after:w-0 after:h-[2px] after:bg-cyan-400 after:transition-all hover:after:w-full"
+          {/* Desktop Navigation */}
+          <div className="hidden lg:flex items-center gap-7">
+            {navItems.map((item) => (
+              <button
+                key={item.id}
+                onClick={() => handleNavigation(item.id)}
+                className={`relative py-2 text-sm font-medium transition-colors duration-300 ${
+                  activeSection === item.id
+                    ? "text-cyan-400"
+                    : "text-slate-300 hover:text-white"
+                }`}
               >
-                {name}
-              </a>
+                {item.name}
+
+                <span
+                  className={`absolute left-0 bottom-0 h-[2px] bg-gradient-to-r from-cyan-400 to-blue-500 transition-all duration-300 ${
+                    activeSection === item.id
+                      ? "w-full"
+                      : "w-0"
+                  }`}
+                />
+              </button>
             ))}
-
-            <a
-              href="#apply"
-              className="rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 px-7 py-3 font-semibold text-white shadow-lg shadow-cyan-500/20 hover:scale-105 transition duration-300"
-            >
-              Apply Now
-            </a>
-
           </div>
 
-          {/* MOBILE BUTTON */}
+          {/* Desktop WhatsApp */}
+          <a
+            href="https://wa.me/919848378055"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hidden lg:inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-semibold shadow-lg shadow-cyan-500/20 hover:scale-105 hover:shadow-cyan-500/30 transition-all duration-300"
+          >
+            <FaWhatsapp className="text-lg" />
+            <span>Chat With Us</span>
+          </a>
+
+          {/* Mobile Menu Button */}
           <button
             onClick={() => setMenuOpen(!menuOpen)}
-            className="lg:hidden text-white text-2xl"
+            className="lg:hidden w-11 h-11 rounded-xl border border-white/10 bg-white/5 flex items-center justify-center text-white hover:bg-white/10 transition"
+            aria-label="Toggle menu"
           >
-            {menuOpen ? <FaTimes /> : <FaBars />}
+            {menuOpen ? (
+              <FaTimes className="text-xl" />
+            ) : (
+              <FaBars className="text-xl" />
+            )}
           </button>
 
         </div>
 
-      </div>
+        {/* Mobile Navigation */}
+        <div
+          className={`lg:hidden overflow-hidden transition-all duration-500 ${
+            menuOpen
+              ? "max-h-[600px] opacity-100 pb-6"
+              : "max-h-0 opacity-0"
+          }`}
+        >
+          <div className="bg-[#0B1B2B]/95 backdrop-blur-xl border border-white/10 rounded-2xl p-4 shadow-2xl">
+            <div className="flex flex-col gap-1">
 
-      {/* MOBILE MENU */}
-      <div
-        className={`lg:hidden overflow-hidden transition-all duration-500 ${
-          menuOpen ? "max-h-[500px]" : "max-h-0"
-        }`}
-      >
-        <div className="bg-[#07131F]/95 backdrop-blur-xl border-t border-white/10 px-6 py-6">
+              {navItems.map((item) => (
+                <button
+                  key={item.id}
+                  onClick={() => handleNavigation(item.id)}
+                  className={`text-left px-5 py-3 rounded-xl font-medium transition-all ${
+                    activeSection === item.id
+                      ? "bg-cyan-500/10 text-cyan-400 border border-cyan-400/20"
+                      : "text-slate-300 hover:bg-white/5 hover:text-white"
+                  }`}
+                >
+                  {item.name}
+                </button>
+              ))}
 
-          <div className="flex flex-col gap-6">
+              <a
+                href="https://wa.me/919848378055"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-3 flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-semibold"
+              >
+                <FaWhatsapp />
+                Chat With Us
+              </a>
 
-            <a href="#hero" onClick={closeMenu} className="text-slate-200 hover:text-cyan-400">
-              Home
-            </a>
-
-            <a href="#about" onClick={closeMenu} className="text-slate-200 hover:text-cyan-400">
-              About
-            </a>
-
-            <a href="#services" onClick={closeMenu} className="text-slate-200 hover:text-cyan-400">
-              Services
-            </a>
-
-            <a href="#contact" onClick={closeMenu} className="text-slate-200 hover:text-cyan-400">
-              Contact
-            </a>
-
-            <a
-              href="#apply"
-              onClick={closeMenu}
-              className="rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 py-3 text-center font-semibold text-white"
-            >
-              Apply Now
-            </a>
-
+            </div>
           </div>
-
         </div>
-      </div>
-    </nav>
+
+      </nav>
+    </header>
   );
 }
 

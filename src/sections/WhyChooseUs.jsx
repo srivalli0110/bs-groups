@@ -51,7 +51,7 @@ const reasons = [
 function WhyChooseUs() {
   return (
     <section
-      id="whychooseus"
+      id="why-choose-us"
       className="relative bg-[#07131F] py-28 px-6 overflow-hidden"
     >
       {/* Background Glow */}

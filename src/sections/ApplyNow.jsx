@@ -46,19 +46,18 @@ ${formData.message}`;
     >
       {/* Background Glow */}
       <div className="absolute -top-40 left-0 w-96 h-96 bg-cyan-500/20 blur-[130px] rounded-full"></div>
+
       <div className="absolute bottom-0 right-0 w-96 h-96 bg-blue-700/20 blur-[140px] rounded-full"></div>
 
       <motion.div
         initial={{ opacity: 0, y: 60 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        transition={{ duration: .8 }}
+        transition={{ duration: 0.8 }}
         className="relative max-w-5xl mx-auto"
       >
         {/* Heading */}
-
         <div className="text-center mb-14">
-
           <span className="uppercase tracking-[5px] text-cyan-400 font-semibold">
             Apply Now
           </span>
@@ -71,18 +70,15 @@ ${formData.message}`;
             Fill in your details and our experts will contact you within
             a short time to help you choose the right financial solution.
           </p>
-
         </div>
 
         {/* Form */}
-
         <form
           onSubmit={handleSubmit}
           className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl p-10 shadow-2xl space-y-7"
         >
-
+          {/* Name */}
           <div>
-
             <label className="block mb-2 text-slate-300 font-medium">
               Full Name
             </label>
@@ -96,11 +92,10 @@ ${formData.message}`;
               placeholder="Enter your full name"
               className="w-full bg-[#0E1C2F] border border-slate-700 rounded-xl px-5 py-4 text-white placeholder:text-slate-500 focus:border-cyan-400 outline-none transition"
             />
-
           </div>
 
+          {/* Phone */}
           <div>
-
             <label className="block mb-2 text-slate-300 font-medium">
               Phone Number
             </label>
@@ -114,11 +109,10 @@ ${formData.message}`;
               placeholder="Enter mobile number"
               className="w-full bg-[#0E1C2F] border border-slate-700 rounded-xl px-5 py-4 text-white placeholder:text-slate-500 focus:border-cyan-400 outline-none transition"
             />
-
           </div>
 
+          {/* Service */}
           <div>
-
             <label className="block mb-2 text-slate-300 font-medium">
               Select Service
             </label>
@@ -130,7 +124,6 @@ ${formData.message}`;
               required
               className="w-full bg-[#0E1C2F] border border-slate-700 rounded-xl px-5 py-4 text-white focus:border-cyan-400 outline-none"
             >
-
               <option value="">Choose Service</option>
 
               <option>Personal Loan</option>
@@ -143,13 +136,11 @@ ${formData.message}`;
               <option>Open Plots</option>
               <option>Farm House Rental</option>
               <option>Tensile Structures</option>
-
             </select>
-
           </div>
 
+          {/* Message */}
           <div>
-
             <label className="block mb-2 text-slate-300 font-medium">
               Message
             </label>
@@ -162,9 +153,9 @@ ${formData.message}`;
               placeholder="Tell us your requirement..."
               className="w-full bg-[#0E1C2F] border border-slate-700 rounded-xl px-5 py-4 text-white placeholder:text-slate-500 focus:border-cyan-400 outline-none transition"
             />
-
           </div>
 
+          {/* Submit */}
           <button
             type="submit"
             className="w-full rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 py-4 font-bold text-lg flex items-center justify-center gap-3 hover:scale-[1.02] transition shadow-xl shadow-cyan-500/20"
@@ -172,9 +163,7 @@ ${formData.message}`;
             <FaWhatsapp className="text-xl" />
             Submit via WhatsApp
           </button>
-
         </form>
-
       </motion.div>
     </section>
   );

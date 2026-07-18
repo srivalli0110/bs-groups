@@ -13,7 +13,6 @@ import Location from "./sections/Location";
 import Footer from "./sections/Footer";
 import FloatingButtons from "./components/FloatingButtons";
 
-// Service Pages
 import Loans from "./pages/loans";
 import Solar from "./pages/solar";
 import Insurance from "./pages/insurance";
@@ -43,18 +42,14 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-
-        {/* Home */}
         <Route path="/" element={<Home />} />
 
-        {/* Service Pages */}
         <Route path="/services/loans" element={<Loans />} />
         <Route path="/services/solar" element={<Solar />} />
         <Route path="/services/insurance" element={<Insurance />} />
         <Route path="/services/farmhouse" element={<Farmhouse />} />
         <Route path="/services/open-plots" element={<OpenPlots />} />
         <Route path="/services/tensile" element={<Tensile />} />
-
       </Routes>
     </BrowserRouter>
   );
