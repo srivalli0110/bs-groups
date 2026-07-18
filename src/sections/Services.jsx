@@ -1,43 +1,42 @@
 import { motion } from "framer-motion";
-import {
-  FaMoneyCheckAlt,
-  FaHome,
-  FaSolarPanel,
-  FaShieldAlt,
-  FaTree,
-  FaBuilding,
-  FaArrowRight,
-} from "react-icons/fa";
+import { FaArrowRight } from "react-icons/fa";
+
+import solarImage from "../assets/images/solar.jpeg";
+import tensileImage from "../assets/images/tensile.jpeg";
+import farmhouseImage from "../assets/images/farmhouse.jpeg";
+import openPlotsImage from "../assets/images/openplots.jpeg";
+import loansImage from "../assets/images/loans.jpeg";
+import insuranceImage from "../assets/images/insurance.jpeg";
 
 function Services() {
   const services = [
     {
-      icon: <FaMoneyCheckAlt />,
+      image: loansImage,
       title: "Loans",
       desc: "Personal, Business, Education and Home Loans with quick approvals and expert guidance.",
     },
     {
-      icon: <FaSolarPanel />,
+      image: solarImage,
       title: "Solar Panels",
       desc: "Smart solar solutions for residential, commercial and industrial projects.",
     },
     {
-      icon: <FaShieldAlt />,
+      image: insuranceImage,
       title: "Insurance",
       desc: "Health, Life and General Insurance plans to protect your family and business.",
     },
     {
-      icon: <FaTree />,
+      image: farmhouseImage,
       title: "Farm House Rentals",
       desc: "Premium farmhouses for vacations, family gatherings and corporate events.",
     },
     {
-      icon: <FaHome />,
+      image: openPlotsImage,
       title: "Open Plots",
       desc: "Secure residential and commercial plot investments in prime locations.",
     },
     {
-      icon: <FaBuilding />,
+      image: tensileImage,
       title: "Tensile Structures",
       desc: "Modern tensile roofing and architectural solutions with premium quality.",
     },
@@ -81,8 +80,8 @@ function Services() {
           </p>
         </motion.div>
 
-        {/* Cards */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {/* Service Cards */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
 
           {services.map((service, index) => (
             <motion.div
@@ -92,41 +91,52 @@ function Services() {
               viewport={{ once: true }}
               transition={{
                 duration: 0.6,
-                delay: index * 0.12,
+                delay: index * 0.1,
               }}
               whileHover={{
-                y: -12,
-                scale: 1.02,
+                y: -10,
               }}
-              className="group rounded-3xl bg-white/5 backdrop-blur-xl border border-white/10 p-8 hover:border-cyan-400 transition-all duration-300 shadow-xl"
+              className="group overflow-hidden rounded-3xl bg-[#0B1B2B] border border-slate-700 hover:border-cyan-400 transition-all duration-500 shadow-xl"
             >
-              {/* Icon */}
-              <div className="w-20 h-20 rounded-2xl bg-gradient-to-r from-cyan-500 to-blue-600 flex items-center justify-center text-white text-4xl shadow-lg shadow-cyan-500/30 mb-8 group-hover:rotate-6 transition duration-300">
-                {service.icon}
+
+              {/* Image */}
+              <div className="relative overflow-hidden h-60">
+                <img
+                  src={service.image}
+                  alt={service.title}
+                  className="w-full h-full object-cover transition duration-700 group-hover:scale-110"
+                />
+
+                <div className="absolute inset-0 bg-gradient-to-t from-[#07131F] via-[#07131F]/20 to-transparent"></div>
               </div>
 
-              {/* Title */}
-              <h3 className="text-2xl font-bold text-white mb-4">
-                {service.title}
-              </h3>
+              {/* Content */}
+              <div className="p-7 flex flex-col h-[250px]">
 
-              {/* Description */}
-              <p className="text-slate-300 leading-8">
-                {service.desc}
-              </p>
+                <h3 className="text-2xl font-bold text-white mb-4">
+                  {service.title}
+                </h3>
 
-              {/* Learn More */}
-              <div className="mt-8 inline-flex items-center gap-2 text-cyan-400 font-semibold group-hover:gap-4 transition-all duration-300">
-                Learn More
-                <FaArrowRight />
+                <p className="text-slate-300 leading-7 flex-grow">
+                  {service.desc}
+                </p>
+
+                <button
+                  className="mt-6 inline-flex items-center gap-2 text-cyan-400 font-semibold group-hover:gap-4 transition-all duration-300"
+                >
+                  Learn More
+                  <FaArrowRight />
+                </button>
+
+                <div className="mt-5 h-[2px] w-0 bg-gradient-to-r from-cyan-400 to-blue-500 group-hover:w-full transition-all duration-500"></div>
+
               </div>
 
-              {/* Bottom Glow Line */}
-              <div className="mt-8 h-[2px] w-0 bg-gradient-to-r from-cyan-400 to-blue-500 group-hover:w-full transition-all duration-500" />
             </motion.div>
           ))}
 
         </div>
+
       </div>
     </section>
   );
