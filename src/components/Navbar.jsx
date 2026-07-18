@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { FaBars, FaTimes, FaWhatsapp } from "react-icons/fa";
 
+import logo from "../assets/images/logo.png";
+
 function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
@@ -80,29 +82,34 @@ function Navbar() {
       <nav className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="h-20 flex items-center justify-between">
 
-          {/* Logo */}
+          {/* ================= LOGO ================= */}
           <button
             onClick={() => handleNavigation("home")}
-            className="flex items-center gap-3 group"
+            className="flex items-center gap-3 group flex-shrink-0"
+            aria-label="Go to Home"
           >
-            <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-cyan-400 to-blue-600 flex items-center justify-center shadow-lg shadow-cyan-500/20 group-hover:scale-105 transition-transform">
-              <span className="text-white font-black text-lg">
-                B&S
-              </span>
+            {/* Circular Logo */}
+            <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-full overflow-hidden bg-white border-2 border-cyan-400 shadow-lg shadow-cyan-500/20 flex-shrink-0 group-hover:scale-105 transition-transform duration-300">
+              <img
+                src={logo}
+                alt="B&S Groups Logo"
+                className="w-full h-full object-cover"
+              />
             </div>
 
+            {/* Logo Text */}
             <div className="text-left">
-              <h1 className="text-white font-black text-xl leading-none">
+              <h1 className="text-white font-black text-xl sm:text-2xl leading-none">
                 B&S GROUPS
               </h1>
 
-              <p className="text-cyan-400 text-[10px] tracking-[3px] uppercase mt-1">
-                Business & Finance
+              <p className="text-cyan-400 text-[10px] sm:text-xs tracking-[3px] uppercase mt-1">
+                BELIEVE & SERVICE
               </p>
             </div>
           </button>
 
-          {/* Desktop Navigation */}
+          {/* ================= DESKTOP NAVIGATION ================= */}
           <div className="hidden lg:flex items-center gap-7">
             {navItems.map((item) => (
               <button
@@ -118,16 +125,14 @@ function Navbar() {
 
                 <span
                   className={`absolute left-0 bottom-0 h-[2px] bg-gradient-to-r from-cyan-400 to-blue-500 transition-all duration-300 ${
-                    activeSection === item.id
-                      ? "w-full"
-                      : "w-0"
+                    activeSection === item.id ? "w-full" : "w-0"
                   }`}
                 />
               </button>
             ))}
           </div>
 
-          {/* Desktop WhatsApp */}
+          {/* ================= DESKTOP WHATSAPP ================= */}
           <a
             href="https://wa.me/919848378055"
             target="_blank"
@@ -138,7 +143,7 @@ function Navbar() {
             <span>Chat With Us</span>
           </a>
 
-          {/* Mobile Menu Button */}
+          {/* ================= MOBILE MENU BUTTON ================= */}
           <button
             onClick={() => setMenuOpen(!menuOpen)}
             className="lg:hidden w-11 h-11 rounded-xl border border-white/10 bg-white/5 flex items-center justify-center text-white hover:bg-white/10 transition"
@@ -150,10 +155,9 @@ function Navbar() {
               <FaBars className="text-xl" />
             )}
           </button>
-
         </div>
 
-        {/* Mobile Navigation */}
+        {/* ================= MOBILE NAVIGATION ================= */}
         <div
           className={`lg:hidden overflow-hidden transition-all duration-500 ${
             menuOpen
@@ -191,7 +195,6 @@ function Navbar() {
             </div>
           </div>
         </div>
-
       </nav>
     </header>
   );
